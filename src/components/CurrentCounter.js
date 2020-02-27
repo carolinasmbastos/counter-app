@@ -1,14 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
-class NextCounter extends React.Component {
+class CurrentCounter extends React.Component {
     state = {
         counter : ''
     }
 
-    getNextCounter = () => {
+    getCurrentCounter = () => {
         console.log(this.props.token)
-        axios.get('http://localhost:8080/api/next', {
+        axios.get('http://localhost:8080/api/current', {
             headers: {
               'Authorization': `Bearer ${this.props.token}`
             }})
@@ -30,12 +30,12 @@ class NextCounter extends React.Component {
     render() {
         return (
             <div>
-                <h1>Next Counter Value: {this.state.counter}</h1>
-                <button onClick={this.getNextCounter} disabled={!this.props.token}>Get Next</button> 
+                <h1>Current Counter Value: {this.state.counter}</h1>
+                <button onClick={this.getCurrentCounter} disabled={!this.props.token}>Get Current</button> 
             </div>
         )
     }
 
 }
 
-export default NextCounter;
+export default CurrentCounter;

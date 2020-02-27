@@ -1,7 +1,8 @@
-import React from 'react';
-import './App.css';
-import RegisterUser from './components/RegisterUser';
+import React from 'react'
+import './App.css'
+import RegisterUser from './components/RegisterUser'
 import NextCounter from './components/NextCounter'
+import CurrentCounter from './components/CurrentCounter'
 import axios from 'axios'
 
 class App extends React.Component {
@@ -39,6 +40,8 @@ class App extends React.Component {
         <p>{this.state.message}</p>
         <hr/>
         <NextCounter token={this.state.token} />
+        <hr/>
+        <CurrentCounter token={this.state.token} />
       </div>
     );
   }
