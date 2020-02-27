@@ -8,7 +8,7 @@ class NextCounter extends React.Component {
 
     getNextCounter = () => {
         console.log(this.props.token)
-        axios.get('http://localhost:8080/api/next', {
+        axios.get('https://counter-api-dev.herokuapp.com/api/next', {
             headers: {
               'Authorization': `Bearer ${this.props.token}`
             }})

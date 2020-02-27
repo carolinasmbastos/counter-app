@@ -14,7 +14,7 @@ class App extends React.Component {
 
   getToken = (user) => {
     console.log(user);
-    axios.post('http://localhost:8080/auth/register', user)
+    axios.post('https://counter-api-dev.herokuapp.com/auth/register', user)
         .then(result => {
             console.log(result.data.token)
             this.setState({
@@ -35,7 +35,7 @@ class App extends React.Component {
   resetCounter = (current) => {
     console.log(current);
     console.log(this.state.token)
-    axios.put('http://localhost:8080/api/current', {current}, {
+    axios.put('https://counter-api-dev.herokuapp.com/api/current', {current}, {
         headers: {
           'Authorization': `Bearer ${this.state.token}`
         }})

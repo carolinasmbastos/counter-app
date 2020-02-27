@@ -8,7 +8,7 @@ class CurrentCounter extends React.Component {
 
     getCurrentCounter = () => {
         console.log(this.props.token)
-        axios.get('http://localhost:8080/api/current', {
+        axios.get('https://counter-api-dev.herokuapp.com/api/current', {
             headers: {
               'Authorization': `Bearer ${this.props.token}`
             }})
