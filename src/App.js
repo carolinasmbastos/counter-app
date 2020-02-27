@@ -3,6 +3,7 @@ import './App.css'
 import RegisterUser from './components/RegisterUser'
 import NextCounter from './components/NextCounter'
 import CurrentCounter from './components/CurrentCounter'
+import ResetCounter from './components/ResetCounter'
 import axios from 'axios'
 
 class App extends React.Component {
@@ -18,7 +19,30 @@ class App extends React.Component {
             console.log(result.data.token)
             this.setState({
                 token : result.data.token,
-                message : 'token saved'
+                message : 'token retrieved successfully'
+            })
+
+        })
+        .catch(error=> {
+            console.log(error)
+            this.setState({
+                message : error.message
+            })
+        })
+
+  }
+
+  resetCounter = (current) => {
+    console.log(current);
+    console.log(this.state.token)
+    axios.put('http://localhost:8080/api/current', {current}, {
+        headers: {
+          'Authorization': `Bearer ${this.state.token}`
+        }})
+        .then(result => {
+            console.log(result.data.data.id)
+            this.setState({
+                messageReset : `Counter Reset to ${result.data.data.id}`
             })
 
         })
@@ -42,6 +66,9 @@ class App extends React.Component {
         <NextCounter token={this.state.token} />
         <hr/>
         <CurrentCounter token={this.state.token} />
+        <hr/>
+        <ResetCounter token={this.state.token} resetCounter={this.resetCounter}/>
+        <p>{this.state.messageReset}</p>
       </div>
     );
   }

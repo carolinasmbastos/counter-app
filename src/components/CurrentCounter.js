@@ -30,7 +30,7 @@ class CurrentCounter extends React.Component {
     render() {
         return (
             <div>
-                <h1>Current Counter Value: {this.state.counter}</h1>
+                <h2>Current Counter Value: {this.state.counter}</h2>
                 <button onClick={this.getCurrentCounter} disabled={!this.props.token}>Get Current</button> 
             </div>
         )

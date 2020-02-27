@@ -22,12 +22,15 @@ class RegisterUser extends React.Component {
     }
 
     render() {
-        return (        
+        return ( 
+            <div>   
+            <h2>Register User to get authorization token</h2>    
             <form onSubmit={this.submit}>
                 <input type="text" name="email" placeholder="enter the email" value={this.state.email} onChange={this.handleChange}/>
                 <input type="password" name="password" placeholder="enter the password" value={this.state.password} onChange={this.handleChange}/>
-                <input type="submit" value="submit"/>
+                <input type="submit" disabled={!this.state.email && !this.state.password}/>
             </form>
+            </div>
         )
     }
 

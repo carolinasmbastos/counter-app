@@ -30,7 +30,7 @@ class NextCounter extends React.Component {
     render() {
         return (
             <div>
-                <h1>Next Counter Value: {this.state.counter}</h1>
+                <h2>Next Counter Value: {this.state.counter}</h2>
                 <button onClick={this.getNextCounter} disabled={!this.props.token}>Get Next</button> 
             </div>
         )
