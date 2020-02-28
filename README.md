@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Notes
+Author: Carolina de Souza Magalhaes Bastos
+carolinasmbastos@gmail.com
 
-## Available Scripts
+### Date
+Feb 27th, 2020
 
-In the project directory, you can run:
+### Location of deployed application
 
-### `npm start`
+This UI application is to help test the Counter API that is deployed at:
+https://counter-ui.herokuapp.com/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This API is deployed in heroku:
+1. For user registration and authorization:
+Submit a POST request to https://counter-api-dev.herokuapp.com/auth/register
+Provide a valid email and password to get a valid authorization Token. The toke is set to expire in 1 hour.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2. To retrieve the next available integer:
+Submit a GET request to https://counter-api-dev.herokuapp.com/api/next
+The next autoincremented integer will be retrieved. 
 
-### `npm test`
+3. To retrieve the current integer:
+Submit a GET request to https://counter-api-dev.herokuapp.com/api/current
+The current integer will be retrieved. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. To Reset the counter to a non-negative integer:
+Submit a PUT request to https://counter-api-dev.herokuapp.com/api/current
+The updated counter value will be retrieved as a result from resetting the value.
 
-### `npm run build`
+Endpoints 2, 3 and 4 are secured by the API token generated from endpoint 1.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+*** Please note that both UI and API are hosted in a free account in Heroku, and first time loading can be a bit slow. ***
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Time spent
+I spent 5:20 hours building both the API and a simple React UI to help testing the API.
 
-### `npm run eject`
+### Assumptions made
+I assumed there was no need to persist the counter value, so every time the application is restarted the counter value will restart from 0.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Shortcuts/Compromises made
+Yes, I could have created a better-styled UI for testing. I did a very basic html just for testing.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Stretch goals attempted
+I attempted to complete two stretch goals: Create a UI for testing and deploying the API and UI.
+I could have done the OAuth part on Facebook but I was running out of time.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Instructions to run assignment locally
+1. Clone the repository.
+2. Run a npm install to install dependencies.
+3. Create a .env file to define the value for the following configurations:
+```
+SECRET_PHRASE= <any phrase to be used as part of the token generation>
+TOKEN_EXPIRATION= <define the value in hours or days like: 1h or 1d>
+```
+4. run a npm start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### What did you not include in your solution that you want us to know about?
+If I had additional time I could have completed one more stretch goal (Sign  in using OAuth).
 
-## Learn More
+### Other information about your submission that you feel it's important that we know if applicable.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Your feedback on this technical challenge
+Challange was interesting and covered the basics aspects of building a Rest API, I had fun doing it and had no issues understanding the requirements.
